@@ -1,5 +1,6 @@
 import streamlit as st 
 from model.chat import send_message
+import traceback
 
 st.title("Once Human Chatbot")
 
@@ -28,5 +29,6 @@ if prompt:
         except:
             response = 'Model currently is too busy. Please try again later.'
             st.markdown(response)
+            print(traceback.format_exc())
 
     st.session_state.messages.append({ 'role': 'assistant', 'content': response })
