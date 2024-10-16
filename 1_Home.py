@@ -26,7 +26,8 @@ if prompt:
             message_generator = send_message(prompt)
             response = st.write_stream(message_generator)
 
-        except:
+        except Exception:
+            print("Something went wrong!")
             response = 'Model currently is too busy. Please try again later.'
             st.markdown(response)
             print(traceback.format_exc())
